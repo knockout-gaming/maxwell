@@ -50,6 +50,12 @@ public class DDLParserTest {
 	}
 
 	@Test
+	public void testIfExists() {
+		MaxwellSQLSyntaxError e = null;
+		assertThat(parse("ALTER TABLE PaymentRequest DROP PRIMARY KEY, DROP COLUMN IF EXISTS id, DROP COLUMN IF EXISTS paymentAccount, DROP COLUMN IF EXISTS paymentRequestType, DROP COLUMN IF EXISTS paymentRequestStatus, DROP COLUMN IF EXISTS currency"), is(nullValue()));
+	}
+
+	@Test
 	public void testColumnAdd() {
 		TableAlter a = parseAlter("ALTER TABLE `foo`.`bar` ADD column `col1` text AFTER `afterCol`");
 		assertThat(a, is(not(nullValue())));

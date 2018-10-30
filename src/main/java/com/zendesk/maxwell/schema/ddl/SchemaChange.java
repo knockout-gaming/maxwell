@@ -43,6 +43,8 @@ public abstract class SchemaChange {
 		SQL_BLACKLIST.add(Pattern.compile("^\\s*OPTIMIZE\\s+", Pattern.CASE_INSENSITIVE | Pattern.MULTILINE));
 
 		SQL_BLACKLIST.add(Pattern.compile("^\\s*REPAIR\\s+", Pattern.CASE_INSENSITIVE | Pattern.MULTILINE));
+
+		SQL_BLACKLIST.add(Pattern.compile("IF EXISTS", Pattern.CASE_INSENSITIVE | Pattern.MULTILINE));
 	}
 
 	private static final Pattern DELETE_BLACKLIST = Pattern.compile("^\\s*DELETE\\s*FROM", Pattern.CASE_INSENSITIVE | Pattern.MULTILINE);
