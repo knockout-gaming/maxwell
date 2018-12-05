@@ -32,7 +32,7 @@ public class MaxwellBootstrapUtilityConfig extends AbstractConfig {
 	}
 
 	public String getConnectionURI( ) {
-		return "jdbc:mysql://" + mysql.host + ":" + mysql.port + "/" + schemaDatabaseName;
+		return "jdbc:mariadb://" + mysql.host + ":" + mysql.port + "/" + schemaDatabaseName;
 	}
 
 	protected OptionParser buildOptionParser() {

@@ -13,6 +13,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.Objects;
 
 import com.zendesk.maxwell.replication.BinlogPosition;
 import com.zendesk.maxwell.replication.Position;
@@ -49,7 +50,7 @@ public class SchemaStoreSchema {
 
 		if ( schemaDatabaseName != null ) {
 			connection.createStatement().execute("CREATE DATABASE IF NOT EXISTS `" + schemaDatabaseName + "`");
-			if (!connection.getCatalog().equals(schemaDatabaseName))
+			if (!Objects.equals(connection.getCatalog(), schemaDatabaseName))
 				connection.setCatalog(schemaDatabaseName);
 		}
 

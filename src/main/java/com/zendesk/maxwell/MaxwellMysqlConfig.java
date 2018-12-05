@@ -95,7 +95,7 @@ public class MaxwellMysqlConfig {
 
 		URIBuilder uriBuilder = new URIBuilder();
 
-		uriBuilder.setScheme("jdbc:mysql");
+		uriBuilder.setScheme("jdbc:mariadb");
 		uriBuilder.setHost(host);
 		uriBuilder.setPort(port);
 
