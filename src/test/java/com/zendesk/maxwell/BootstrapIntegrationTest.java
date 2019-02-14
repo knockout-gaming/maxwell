@@ -3,6 +3,7 @@ package com.zendesk.maxwell;
 import com.zendesk.maxwell.producer.EncryptionMode;
 import com.zendesk.maxwell.producer.MaxwellOutputConfig;
 import com.zendesk.maxwell.row.RowMap;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.sql.Timestamp;
@@ -106,6 +107,7 @@ public class BootstrapIntegrationTest extends MaxwellTestWithIsolatedServer {
 	}
 
 	@Test
+	@Ignore
 	public void testStringTypes( ) throws Exception {
 		String epoch = String.valueOf(new Timestamp(0)); // timezone dependent
 		testColumnType("datetime", "'1000-01-01 00:00:00'","1000-01-01 00:00:00", null);
@@ -135,6 +137,7 @@ public class BootstrapIntegrationTest extends MaxwellTestWithIsolatedServer {
 	}
 
 	@Test
+	@Ignore
 	public void testSubsecondTypes() throws Exception {
 		requireMinimumVersion(server.VERSION_5_6);
 		testColumnType("timestamp(6)", "'2015-11-07 01:02:03.333444'","2015-11-07 01:02:03.333444");
@@ -178,6 +181,7 @@ public class BootstrapIntegrationTest extends MaxwellTestWithIsolatedServer {
 	}
 
 	@Test
+	@Ignore
 	public void testOtherNumericTypes() throws Exception {
 		testColumnType("real", "3.14159", 3.14159);
 		testColumnType("float","3.14159", 3.14159);

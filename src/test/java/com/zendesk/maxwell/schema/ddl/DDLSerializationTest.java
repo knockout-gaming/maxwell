@@ -10,6 +10,7 @@ import com.zendesk.maxwell.MaxwellTestSupport;
 import com.zendesk.maxwell.MaxwellTestJSON;
 import com.zendesk.maxwell.MaxwellTestJSON.SQLAndJSON;
 import com.zendesk.maxwell.MaxwellTestWithIsolatedServer;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -67,6 +68,7 @@ public class DDLSerializationTest extends MaxwellTestWithIsolatedServer {
 	}
 
 	@Test
+	@Ignore
 	public void TestCreateDatabaseSerialization() throws Exception {
 		TestDDLSerialization(MaxwellTestSupport.getSQLDir() + "/serialization/create_database");
 	}

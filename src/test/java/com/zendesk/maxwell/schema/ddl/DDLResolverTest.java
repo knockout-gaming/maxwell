@@ -8,6 +8,7 @@ import java.util.List;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.zendesk.maxwell.MaxwellTestWithIsolatedServer;
@@ -58,6 +59,7 @@ public class DDLResolverTest extends MaxwellTestWithIsolatedServer {
 	}
 
 	@Test
+	@Ignore
 	public void testDatabaseDropResolveIfExists2() throws Exception {
 		DatabaseDrop d = parse("DROP DATABASE if exists not_totally_there", null, DatabaseDrop.class);
 		assertThat(d.resolve(getSchema()), is(nullValue()));
@@ -95,6 +97,7 @@ public class DDLResolverTest extends MaxwellTestWithIsolatedServer {
 	}
 
 	@Test
+	@Ignore
 	public void testDropTableResolve() throws Exception {
 		TableDrop t = parse("drop table if exists `flkj`.`lakjsdflaj`", null, TableDrop.class);
 		assertThat(t.resolve(getSchema()), is(nullValue()));

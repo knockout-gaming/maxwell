@@ -538,8 +538,8 @@ public class MaxwellIntegrationTest extends MaxwellTestWithIsolatedServer {
 		String[] opts = {"--jdbc_options= netTimeoutForStreamingResults=123& profileSQL=true  ", "--host=no-soup-spoons"};
 		MaxwellConfig config = new MaxwellConfig(opts);
 		config.validate();
-		assertThat(config.maxwellMysql.getConnectionURI(), containsString("jdbc:mysql://no-soup-spoons:3306/maxwell?"));
-		assertThat(config.replicationMysql.getConnectionURI(), containsString("jdbc:mysql://no-soup-spoons:3306?"));
+		assertThat(config.maxwellMysql.getConnectionURI(), containsString("jdbc:mariadb://no-soup-spoons:3306/maxwell?"));
+		assertThat(config.replicationMysql.getConnectionURI(), containsString("jdbc:mariadb://no-soup-spoons:3306?"));
 
 		Set<String> maxwellMysqlParams = new HashSet<>();
 		maxwellMysqlParams.addAll(Lists.newArrayList(config.maxwellMysql.getConnectionURI()

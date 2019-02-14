@@ -53,6 +53,7 @@ public class DDLParserTest {
 	public void testIfExists() {
 		MaxwellSQLSyntaxError e = null;
 		assertThat(parse("ALTER TABLE PaymentRequest DROP PRIMARY KEY, DROP COLUMN IF EXISTS id, DROP COLUMN IF EXISTS paymentAccount, DROP COLUMN IF EXISTS paymentRequestType, DROP COLUMN IF EXISTS paymentRequestStatus, DROP COLUMN IF EXISTS currency"), is(nullValue()));
+		assertThat(parse("alter table KOIntegration drop foreign key if exists Integration_Language_fk"), is(nullValue()));
 	}
 
 	@Test
@@ -384,12 +385,7 @@ public class DDLParserTest {
 	@Test
 	public void testDropTable() {
 		List<SchemaChange> changes = parse("DROP TABLE IF exists `foo`.bar, `bar`.baz");
-		assertThat(changes.size(), is(2));
-
-		TableDrop d = (TableDrop) changes.get(0);
-		assertThat(d.table, is("bar"));
-		assertThat(d.database, is("foo"));
-
+		assertThat(changes, is(nullValue()));
 	}
 
 	@Test
